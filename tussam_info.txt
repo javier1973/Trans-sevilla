@@ -1,0 +1,64 @@
+Suds ( https://fedorahosted.org/suds/ )  version: 0.3.9 GA  build: R659-20100219
+
+Service ( Estructura ) tns="http://tempuri.org/"
+   Prefixes (1)
+      ns0 = "http://tempuri.org/"
+   Ports (2):
+      (EstructuraSoap)
+         Methods (8):
+            GetLineas()
+            GetLineasFilter(xs:int mask, )
+            GetNodosMapSublinea(xs:string label, xs:int sublinea, )
+            GetPolylineaSublinea(xs:string label_linea, xs:int num_sublinea, )
+            GetRutasSublinea(xs:string label, xs:int sublinea, )
+            GetTiposNodosMap()
+            GetTopoSublinea(xs:string label, xs:int sublinea, )
+            SearchNode(xs:string substring, )
+         Types (18):
+            ArrayOfInfoCoord
+            ArrayOfInfoLinea
+            ArrayOfInfoNodo
+            ArrayOfInfoNodoMap
+            ArrayOfInfoNodoSeccion
+            ArrayOfInfoRuta
+            ArrayOfInfoSeccion
+            ArrayOfInfoSublinea
+            ArrayOfInfoTipoNodo
+            InfoCoord
+            InfoLinea
+            InfoNodo
+            InfoNodoMap
+            InfoNodoSeccion
+            InfoRuta
+            InfoSeccion
+            InfoSublinea
+            InfoTipoNodo
+      (EstructuraSoap12)
+         Methods (8):
+            GetLineas()
+            GetLineasFilter(xs:int mask, )
+            GetNodosMapSublinea(xs:string label, xs:int sublinea, )
+            GetPolylineaSublinea(xs:string label_linea, xs:int num_sublinea, )
+            GetRutasSublinea(xs:string label, xs:int sublinea, )
+            GetTiposNodosMap()
+            GetTopoSublinea(xs:string label, xs:int sublinea, )
+            SearchNode(xs:string substring, )
+         Types (18):
+            ArrayOfInfoCoord
+            ArrayOfInfoLinea
+            ArrayOfInfoNodo
+            ArrayOfInfoNodoMap
+            ArrayOfInfoNodoSeccion
+            ArrayOfInfoRuta
+            ArrayOfInfoSeccion
+            ArrayOfInfoSublinea
+            ArrayOfInfoTipoNodo
+            InfoCoord
+            InfoLinea
+            InfoNodo
+            InfoNodoMap
+            InfoNodoSeccion
+            InfoRuta
+            InfoSeccion
+            InfoSublinea
+            InfoTipoNodo
