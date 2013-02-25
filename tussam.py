@@ -3,5 +3,25 @@
 #nos devuelve el dos autobuses mas cercanos con distancia y tiempo estimado para
 #llegar a la parada
 from suds.client import Client
-cliente = Client('http://www.infobustussam.com:9001/services/dinamica.asmx?wsdl ')
-print cliente.service.GetPasoParada ("26","357",1)
+#cliente = Client('http://www.infobustussam.com:9001/services/dinamica.asmx?wsdl ')
+#print cliente.service.GetPasoParada ("26","357",1)
+
+
+
+#de esta forma obtenemos listado de todas las peticiones que podemos hacer a la url estatica 
+#cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsdl ')
+#print cliente
+
+#De esta froma podemos consultar los nodos(paradas) de una linea
+#cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsdl ')
+#print cliente.service.GetNodosMapSublinea ("01",1)
+
+
+#No funciona no nos da un listado de lineas opertivas
+#cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsdl ')
+#print cliente.service.GetLineas
+
+
+#De esta forma obtenemos coordenadas del trazado de una linea
+#cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsdl ')
+#print cliente.service.GetPolylineaSublinea ("13",1)
