@@ -1,18 +1,28 @@
 Trans-sevilla
 =============
 
-Seleción del transporte publico más eficiente para nuestor destino en Sevilla
+Selección del transporte publico más eficiente para nuestro destino en Sevilla.
+
+de esta forma obtenemos listado de todas las peticiones que podemos hacer a la url estática 
+cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsdl ')
+print cliente
+
+
+
 
 Para comenzar vamos a localizar las paradas de las distintas lineas, con el fin de poder 
 representarlas en un mapa (si es posible en (openstreetmap), para ello necesitamos obtener
- un listado de las lineas operativas.
+un listado de las lineas operativas.
 
-Por ahora no se he consequido un listado de lineas desde la web, de seguir sin conseguirlo
-creare una lista con las lineas.
 
-Con este codigo en pytho obtenemos un listado de las paradas de una linea en un sentido determinado.
+De este modo obtenemos un listado de las lineas operativas.
+cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsdl ')
+print cliente.service.GetLineas()
+
+Con este código en python obtenemos un listado de las paradas de una linea en un sentido determinado.
 si realizamos la consulta recorriendo una lista con las lineas y indicando los dos sentidos de cada
 linea, obtendremos todas las paradas de las lineas de autobuses.
+
 "cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsdl ')"
 "print cliente.service.GetNodosMapSublinea ("01",1)"
 
@@ -36,4 +46,11 @@ linea, obtendremos todas las paradas de las lineas de autobuses.
          posx = 235735.296875
          posy = 4142099.5
 
-Este es un fragmento de la informacion obtenida en la que vemos los datos que se obtiene por nodo(parada).
+Este es un fragmento de la información obtenida en la que vemos los datos que se obtiene por nodo(parada).
+
+Ya hemos conseguido identificar lineas y paradas, necesitamos tratar el resultado para poder hacer una petición que nos diga cuando llega el próximo autobús.
+
+Esta petición nos da el tiempo estimado en llegar de los dos autobuses más cercanos a la parada, hemos saber la parada, linea y sentido.
+
+cliente = Client('http://www.infobustussam.com:9001/services/dinamica.asmx?wsdl ')
+print cliente.service.GetPasoParada ("26","357",1)
