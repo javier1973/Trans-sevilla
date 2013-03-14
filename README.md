@@ -3,6 +3,26 @@ Trans-sevilla
 
 Selección del transporte publico más eficiente para nuestro destino en Sevilla.
 
+
+
+
+
+
+
+
+
+
+
+
+Obtencion de datos
+==================
+
+La empresa municipal de servicio de autobus facilita desde su plataforma web informacion sobre el servicio ofertdo que se puede consultar para tratar la informcion, desde esta url "http://www.infobustussam.com:9001/services/estructura.asmx" nos da información de el tipo de consultas que podemos hacer.
+Asi podemos consultar datos estaticos, lineas, paradas ...
+
+
+
+
 de esta forma obtenemos listado de todas las peticiones que podemos hacer a la url estática 
 cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsdl ')
 print cliente
