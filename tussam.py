@@ -1,13 +1,13 @@
-﻿from suds.client import Client
+from suds.client import Client
 from lxml import etree
-from lxml.html import soupparser
+
 #este es la api de tussam
 
 
-# Para realizar consultas de datos dinámicos
+# Para realizar consultas de datos dinamicos
 #cliente = Client('http://www.infobustussam.com:9001/services/dinamica.asmx?wsdl',retxml=True)
 
-#realizamos una petición a la api de tussam con la line y el numero de parada
+#realizamos una peticion a la api de tussam con la line y el numero de parada
 #nos devuelve el dos autobuses mas cercanos con distancia y tiempo estimado para
 #llegar a la parada
 #print cliente.service.GetPasoParada ("12","974",1)
@@ -27,20 +27,19 @@ cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsd
 
 lineas = cliente.service.GetLineas()
 print ('lineas es del tipo: ',type(lineas))
-#lin = soupparser.fromstring(lineas)
 lin = etree.fromstring(lineas)
-print ('lin :', type (lin))
-#linea = etree.XMLID(lineas)
-#linea = etree.ElementTree(element=lin)
-#print linea
-
-print etree.tostring(lin , pretty_print = True)
-#print ('lin es del tipo: ',type(lin))
-#print ('linea es del tipo: ',type(linea))
-#ln = lin.xpath("/soap:Envelope/soap:Body/GetLineasResponse/GetLineasResult/InfoLinea/sublineas/InfoSublinea")
-#print ('ln es del tipo: ',type(ln))
-#for i in lin :
-#    print 
+print etree.tostring(lin , pretty_print = True) #imprimios el contenido del xml
+ns ={"ns": "http://tempuri.org/"} #definimos el namespace
+label = lin.xpath("/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:label", namespaces = ns)
+nombre = lin.xpath("/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:nombre", namespaces = ns)
+sublinea = lin.xpath("/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:sublineas/ns:InfoSublinea/ns:sublinea", namespaces = ns)
+print ('lin es del tipo: ',type(lin))
+print ('label es del tipo: ',type(label))
+print ('la longitud de label : ',len(label))
+print ('la longitud de nombre : ',len(nombre))
+print ('la longitud de label : ',len(sublinea))
+for i in label :
+    print i.text
     
 #De esta forma obtenemos coordenadas del trazado de una linea
 #print cliente.service.GetPolylineaSublinea ("13",1)
