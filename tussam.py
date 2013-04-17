@@ -28,18 +28,25 @@ cliente = Client('http://www.infobustussam.com:9001/services/estructura.asmx?wsd
 lineas = cliente.service.GetLineas()
 print ('lineas es del tipo: ',type(lineas))
 lin = etree.fromstring(lineas)
-print etree.tostring(lin , pretty_print = True) #imprimios el contenido del xml
-ns ={"ns": "http://tempuri.org/"} #definimos el namespace
-label = lin.xpath("/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:label", namespaces = ns)
-nombre = lin.xpath("/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:nombre", namespaces = ns)
-sublinea = lin.xpath("/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:sublineas/ns:InfoSublinea/ns:sublinea", namespaces = ns)
+
+#print etree.tostring(lin , pretty_print = True) #imprimios el contenido del xml
+ns ={"ns":"http://tempuri.org/",
+     "soap":"http://schemas.xmlsoap.org/soap/envelope/" } #definimos el namespace
+label = lin.xpath('/soap:Envelope/soap:Body/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:label', namespaces = ns)
+nombre = lin.xpath("/soap:Envelope/soap:Body/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:nombre", namespaces = ns)
+sublinea = lin.xpath("/soap:Envelope/soap:Body/ns:GetLineasResponse/ns:GetLineasResult/ns:InfoLinea/ns:sublineas/ns:InfoSublinea/ns:sublinea", namespaces = ns)
+
+
 print ('lin es del tipo: ',type(lin))
 print ('label es del tipo: ',type(label))
 print ('la longitud de label : ',len(label))
 print ('la longitud de nombre : ',len(nombre))
 print ('la longitud de label : ',len(sublinea))
-for i in label :
-    print i.text
+
+for i in xrange(1,len(label)):
+    print ('Linea ',label[i].text,'nombre ',nombre[i].text)
+
+
     
 #De esta forma obtenemos coordenadas del trazado de una linea
 #print cliente.service.GetPolylineaSublinea ("13",1)
