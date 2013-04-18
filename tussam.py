@@ -44,8 +44,7 @@ print ('la longitud de nombre : ',len(nombre))
 print ('la longitud de label : ',len(sublinea))
 
 for i in xrange(1,len(label)):
-    print ('Linea ',label[i].text,'nombre ',nombre[i].text)
-
+    print ('Linea ',label[i].text,'nombre ',nombre[i].text,'sublinea ',sublinea[i].text)
 
     
 #De esta forma obtenemos coordenadas del trazado de una linea
