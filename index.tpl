@@ -6,7 +6,7 @@
   <body>
     <h2>Transporte urbanos de sevilla</h2>
     <h2>Selecciona el tipo de transporte a usar</h2>
-    <p><a href="tussam">Autobus</a> </p>
+    <p><a href="lista_lineas">Autobus</a> </p>
     <p><a href="lista_nodos_o">Bicicleta</a> </p>
   </body>
 </html>

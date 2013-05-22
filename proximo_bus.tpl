@@ -3,16 +3,13 @@
   <head >
     <title>Trans Sevilla</title>
   </head>
-  <h3>Listado de nodos disponibles</h3>
-<form action="/nodo_o" method="post">
-   <select name="lista_nodos_o">
-  %for i in nombre:
-	<option value="{{i}}">{{i}}</option>
-  %end
+  <h3>Listado de lineas disponibles</h3>
+<form action="/proximo_bus" method="post">
+   <select name="lista_parada_linea">
+	%for i in xrange(lg):
+	    <option value="{{nd[i]['nodo']}}">{{nd[i]['nodo']}} {{nd[i]['nombre']}}</option>
+	%end
   </select>
   <input type="submit" value="Enviar">
-
 </form>
-
-
 </html>
