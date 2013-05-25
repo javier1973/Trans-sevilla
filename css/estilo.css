@@ -1,0 +1,48 @@
+body {
+font-family: 'Verdana', sans-serif;
+margin: 0 auto;
+width: 800px;
+background: #cddedd;
+}
+
+h3 {
+text-align: center;
+}
+
+#form {
+background: #cddedd;
+padding-left: 20px;
+padding-right: 20px;
+padding-bottom: 30px;
+padding-top: 10px;
+color: #1e6085;
+}
+#home {
+height: 150px;
+margin: 0;
+padding: 0;
+text-align: center;
+background: url("/css/tussam_sevici.png") no-repeat scroll 0 0;
+width: 100%;
+}
+
+#sevici {
+height: 150px;
+margin: 0;
+padding: 0;
+text-align: center;
+background: url("/css/logo_sevici.png") no-repeat scroll 0 0;
+width: 100%;
+
+}
+
+#tussam {
+height: 150px;
+margin: 0;
+padding: 0;
+text-align: center;
+background: url("/css/tussamlogo.jpg") no-repeat scroll 0 0;
+width: 75%;
+height: 75%;
+
+}

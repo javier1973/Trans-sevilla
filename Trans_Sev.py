@@ -1,6 +1,6 @@
 ﻿from urllib2 import urlopen
 from json import load
-from bottle import route, run, template, request, debug
+from bottle import route, run, template, request, debug, static_file
 from math import sin, cos, sqrt, asin, pi
 import bottle
 from suds.client import Client
@@ -12,6 +12,12 @@ bicis = load(urlopen(urlt))
 @route('/index')
 def home():
 	return template('index')
+	
+
+@route('/css/:filename#.*#')
+def server_static(filename):
+    return static_file(filename, root='./css/')	
+
 
 @route('/lista_nodos_o')
 def lista_nodos():
@@ -121,7 +127,6 @@ def proximo_bus():
 	minu_2 = ab.xpath('/soap:Envelope/soap:Body/ns:GetPasoParadaResponse/ns:GetPasoParadaResult/ns:PasoParada/ns:e2/ns:minutos', namespaces = ns)
 	metros_2 = ab.xpath('/soap:Envelope/soap:Body/ns:GetPasoParadaResponse/ns:GetPasoParadaResult/ns:PasoParada/ns:e2/ns:metros', namespaces = ns)
 	return template ('proximo_bus',minu_1=minu_1,metros_1=metros_1,minu_2=minu_2,metros_2=metros_2)
-
-        
+       
 debug(True)    
 run(host='localhost', port=8080)
