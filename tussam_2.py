@@ -74,14 +74,21 @@ def lista_paradas_linea():
 @route('/proximo_bus',method = 'post')
 def proximo_bus():
 	cliente = Client('http://www.infobustussam.com:9001/services/dinamica.asmx?wsdl',retxml=True)
-	#~ global linea_o
 	linea_o = request.forms.get('lista_lineas')
 	parada_o = request.forms.get('lista_parada_linea')
 	cliente.service.GetPasoParada (linea_o,parada_o,1)
-
-
-
-	return template ('proximo_bus',nd=nd,lg=lg)
+	cliente = Client('http://www.infobustussam.com:9001/services/dinamica.asmx?wsdl',retxml=True)
+	abus=cliente.service.GetPasoParada ("12","974",1)
+	ab = etree.fromstring(abus)
+	ns ={"ns":"http://tempuri.org/","soap":"http://schemas.xmlsoap.org/soap/envelope/" } #definimos el namespace
+	#print etree.tostring(ab , pretty_print = True) #imprimios el contenido del xml
+	#~ lineas = cliente.service.GetLineas()
+	#~ lin = etree.fromstring(lineas)
+	minu_1 = ab.xpath('/soap:Envelope/soap:Body/ns:GetPasoParadaResponse/ns:GetPasoParadaResult/ns:PasoParada/ns:e1/ns:minutos', namespaces = ns)
+	metros_1 = ab.xpath('/soap:Envelope/soap:Body/ns:GetPasoParadaResponse/ns:GetPasoParadaResult/ns:PasoParada/ns:e1/ns:metros', namespaces = ns)
+	minu_2 = ab.xpath('/soap:Envelope/soap:Body/ns:GetPasoParadaResponse/ns:GetPasoParadaResult/ns:PasoParada/ns:e2/ns:minutos', namespaces = ns)
+	metros_2 = ab.xpath('/soap:Envelope/soap:Body/ns:GetPasoParadaResponse/ns:GetPasoParadaResult/ns:PasoParada/ns:e2/ns:metros', namespaces = ns)
+	return template ('proximo_bus',minu_1=minu_1,metros_1=metros_1,minu_2=minu_2,metros_2=metros_2)
 
 debug(True)    
 run(host='localhost', port=8080)
