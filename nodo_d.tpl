@@ -18,5 +18,6 @@
     <p>La distancia entre los dos nodos es de {{dist}} metros</p>    
     <p><a href="lista_nodos_o">Volver a selecionar nodo de origen</a> </p>
     <p><a href="lista_nodos_d">Volver a selecionar nodo de destino</a> </p>
+    <p><a href="index">Volver al menú principal</a> </p>
   </body>
 </html>

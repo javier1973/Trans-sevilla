@@ -3,13 +3,12 @@
   <head >
     <title>Trans Sevilla</title>
   </head>
-  <h3>Listado de lineas disponibles</h3>
-<form action="/proximo_bus" method="post">
-   <select name="lista_parada_linea">
-	%for i in xrange(lg):
-	    <option value="{{nd[i]['nodo']}}">{{nd[i]['nodo']}} {{nd[i]['nombre']}}</option>
-	%end
-  </select>
-  <input type="submit" value="Enviar">
-</form>
+  <body>
+	<h3>Los próximos autobuses pasaran en :</h3>
+    <p>Próximo autobus stará en la parada en {{minu_1[0].text}} minutos</p>
+    <p>Se encuentra a {{metros_1[0].text}} metros</p>
+    <p>El siguiente autobus stará en la parada en {{minu_2[0].text}} minutos</p>
+    <p>Se encuentra a {{metros_2[0].text}} metros</p>
+    <p><a href="index">Volver al menu principal</a> </p>
+  </body>
 </html>
