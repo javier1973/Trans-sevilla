@@ -12,11 +12,13 @@
 		</p>
 	</div>
   <body>
+	
 	<h3>Los próximos autobuses pasaran en :</h3>
     <p>Próximo autobus stará en la parada en {{minu_1[0].text}} minutos</p>
     <p>Se encuentra a {{metros_1[0].text}} metros</p>
     <p>El siguiente autobus stará en la parada en {{minu_2[0].text}} minutos</p>
     <p>Se encuentra a {{metros_2[0].text}} metros</p>
+    <p><a href="lista_parada_linea_destino">Establecer parada de destino</a> </p>
     <p><a href="index">Volver al menu principal</a> </p>
   </body>
 </html>
