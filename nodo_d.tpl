@@ -23,7 +23,8 @@
     <p>Bicis disponibles {{nbicis_d}}</p>
     <p>Huecos libres {{libres_d}}</p>
     <p>Coordenadas: latitud {{lat_d}} , longitud {{lng_d}}</p>
-    <p>La distancia entre los dos nodos es de {{dist}} metros</p>    
+    <p>La distancia entre los dos nodos es de {{dist}} metros</p>
+    <p>Con una velocidad estimada de 15 km/h tardara  {{tmp}} minutos</p>    
     <p><a href="lista_nodos_o">Volver a selecionar nodo de origen</a> </p>
     <p><a href="lista_nodos_d">Volver a selecionar nodo de destino</a> </p>
     <p><a href="index">Volver al menú principal</a> </p>

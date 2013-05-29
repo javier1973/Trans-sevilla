@@ -10,18 +10,18 @@ h3 {
 text-align: center;
 }
 
-/*
-#form {
+
+#res {
 background: #cddedd;
 padding-left: 20px;
 padding-right: 20px;
 padding-bottom: 30px;
 padding-top: 10px;
 color: #1e6085;
-*/
 }
+
 #home {
-height: 150px;
+height: 250px;
 margin: 0;
 padding: 0;
 text-align: center;
