@@ -5,15 +5,6 @@ Selección del transporte publico más eficiente para nuestro destino en Sevilla
 
 
 
-
-
-
-
-
-
-
-
-
 Obtencion de datos
 ==================
 
@@ -74,3 +65,18 @@ Esta petición nos da el tiempo estimado en llegar de los dos autobuses más cer
 
 cliente = Client('http://www.infobustussam.com:9001/services/dinamica.asmx?wsdl ')
 print cliente.service.GetPasoParada ("26","357",1)
+
+
+Modificaciones pendientes
+==========================
+
+En un futuro se planteará la posibilidad de representar graficamente sobre mapa los nodos rutas etc.
+
+Qued pendiente la conversión de las coordenadas utm de los nodos de bicicletas, ya que no he identificado que tipo de coordenadas son.
+
+El tiempo se calcula como un estimación, se puede estudiar hacer consultas a apis para obtener datos de la ruta.
+
+
+
+
+
