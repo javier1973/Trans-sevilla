@@ -1,4 +1,4 @@
-﻿from urllib2 import urlopen
+﻿0from urllib2 import urlopen
 from json import load
 from bottle import route, run, template, request, debug, static_file
 from math import sin, cos, sqrt, asin, pi
@@ -21,12 +21,12 @@ urlt = 'http://api.citybik.es/sevici.json'
 bicis = load(urlopen(urlt))
 
 	
-#dfinimos dosnde estea la hoja de estilo
+#definimos donde estea la hoja de estilo
 @route('/css/:filename#.*#')
 def server_static(filename):
     return static_file(filename, root='./css/')	
 
-#creasmo lista con los nodos de las vicicletas y lo pasamos al template
+#creamos lista con los nodos de las vicicletas y lo pasamos al template
 @route('/lista_nodos_o')
 def lista_nodos():
 	nombre = []
@@ -114,7 +114,7 @@ def lista_lineas():
 		lbl.append(dicc)
 	return template ('lista_lineas',lbl=lbl,lg=lg)
 
-#obtenemos la linea seleccionamos y consultamos las paradas a la apiy se los pasamos al template 
+#obtenemos la linea seleccionamos y consultamos las paradas a la apy se los pasamos al template 
 @route('/lista_parada_linea',method = 'post')
 def lista_paradas_linea():
 	global nd, linea_o
@@ -164,7 +164,7 @@ def proximo_bus():
     
 
 	
-#obtenemos la linea seleccionamos y consultamos las paradas a la apiy se los pasamos al template 
+#obtenemos la linea seleccionamos y consultamos las paradas a la apy se los pasamos al template 
 @route('/lista_parada_linea_destino')
 #@route('/lista_parada_linea_destino',method = 'post')
 def lista_parada_linea_destino():
@@ -211,5 +211,6 @@ def resumen_bus():
 
        
        
-#debug(True)    
-run(host='http://python-transevilla.rhcloud.com/', port=80)
+debug(True)    
+run(host='localhost', port=8080)
+#run(host='http://python-transevilla.rhcloud.com/', port=80)
